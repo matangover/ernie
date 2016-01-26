@@ -1,3 +1,5 @@
 git+git://github.com/matangover/pygtfs.git
 psycopg2
 Flask
+Flask-SQLAlchemy
+Flask-Heroku
