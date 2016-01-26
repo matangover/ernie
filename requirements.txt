@@ -1,1 +1,2 @@
 git+git://github.com/matangover/pygtfs.git
+psycopg2
