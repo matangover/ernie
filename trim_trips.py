@@ -14,11 +14,14 @@ def main():
 
     with open(sys.argv[2]) as input_file, open(sys.argv[3], "w") as output_file:
         first_line = next(input_file)
-        output_file.write(first_line)
+        # Remove shape_id column
+        output_file.write(",".join(first_line.split(",")[:-1]) + "\n")
         for line in input_file:
-            trip_id = line.split(",")[2]
+            line_cells = line.split(",")
+            trip_id = line_cells[2]
             if trip_id in trip_ids:
-                output_file.write(line)
+                # Remove shape_id column
+                output_file.write(",".join(line_cells[:-1]) + "\n")
 
 if __name__ == "__main__":
     main()
