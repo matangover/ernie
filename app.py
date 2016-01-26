@@ -30,7 +30,12 @@ def stops():
         LIMIT 5
         """ % {"distance_query": distance_query})).params(lat=lat, long=long)
 
-    response = json.dumps([int(stop.stop_id) for stop in stops])
+    response = json.dumps([
+        {
+            "stop_id": stop.stop_id,
+            "stop_code": stop.stop_code,
+            "stop_name": stop.stop_name
+        } for stop in stops])
     return Response(response=response, mimetype="application/json")
 
 if __name__ == "__main__":
